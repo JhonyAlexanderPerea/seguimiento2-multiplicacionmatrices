@@ -6,11 +6,11 @@ Proyecto en Java (Maven) para implementar, comparar y analizar algoritmos de mul
 
 Evaluar el comportamiento de diferentes tecnicas de multiplicacion de matrices en terminos de complejidad teorica y rendimiento practico.
 
-## Tecnologias
+## Tecnologías
 
 - Java 17
 - Maven
-- JFreeChart (graficas)
+- JFreeChart (gráficas)
 - JUnit 5 (pruebas)
 
 ## Algoritmos Implementados
@@ -68,17 +68,3 @@ mvn clean package
 ```
 
 Se genera un artefacto ejecutable con dependencias en `target/` usando `maven-assembly-plugin`.
-
-## Estado Actual
-
-- El punto de entrada actual es `co.uniquindio.Main`.
-- Hay clases utilitarias y de reportes aun en desarrollo (`utilidades`, `reportes`, `modelo`, `persistencia`).
-- La carpeta `data/` esta preparada para almacenar matrices de entrada y resultados de benchmarks.
-
-## Siguientes Pasos Recomendados
-
-1. Implementar `MatrixGenerator` para generar datasets reproducibles (semilla fija).
-2. Implementar `BenchmarkRunner` para medir tiempos por algoritmo y tamano.
-3. Persistir resultados en `data/resultados/` con formato CSV o JSON.
-4. Generar graficas comparativas con JFreeChart.
-5. Agregar pruebas de regresion para validar exactitud entre algoritmos.
