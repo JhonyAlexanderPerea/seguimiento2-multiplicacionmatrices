@@ -1,0 +1,312 @@
+================================================================================
+                MATRIX MULTIPLICATION BENCHMARK - TECHNICAL LOG
+================================================================================
+
+[ENVIRONMENT]
+session.start          : 2026-04-26 01:16:02.157
+session.timezone       : America/Bogota
+os                     : Windows 11 10.0 (amd64)
+cpu.cores              : 12
+cpu.load.avg           : -1.00
+jvm.vendor             : Oracle Corporation
+jvm.version            : 24.0.2
+jvm.runtime            : OpenJDK 64-Bit Server VM 24.0.2+12-54
+jvm.heap.max           : 12288.00 MB
+jvm.heap.total         : 520.00 MB
+jvm.heap.free          : 513.13 MB
+jvm.uptime.ms          : 135
+jvm.input.args         : -Xmx12g
+
+[PARAMETERS]
+matrix.size            : 2048 x 2048
+matrix.cells           : 4,194,304
+matrix.element.type    : long (8 bytes, signed 64-bit integer)
+matrix.element.range   : [100,000 , 999,999]
+matrix.bytes.each      : 32.00 MB
+matrix.bytes.both      : 64.00 MB
+algorithms.count       : 16
+
+[ALGORITHMS REGISTERED]  (in execution order)
+   1. NaivOnArray
+   2. NaivIKJ
+   3. NaivKIJ
+   4. NaivJIK
+   5. TransposedNaiv
+   6. BlockMatrix(B=64)
+   7. NaivLoopUnrollingTwo
+   8. NaivLoopUnrollingFour
+   9. NaivLoopUnrollingEight
+  10. WinogradOriginal
+  11. WinogradScaled
+  12. RecursiveDivideConquer
+  13. StrassenNaiv
+  14. StrassenWinograd
+  15. ParallelNaiv(threads=11)
+  16. ParallelBlock(B=64,threads=11)
+
+[MATRIX GENERATION]
+matrices.generated     : 2 (A, B)
+generation.elapsed     : 257.347 ms
+
+[EXECUTION]
+--------------------------------------------------------------------------------
+[1/16] NaivOnArray
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:16:02.429
+  end                  : 2026-04-26 01:18:06.962
+  elapsed              : 124.511 s   (124,511.040 ms)
+  elapsed.ns           : 124,511,039,900
+  elapsed.ms           : 124,511.040
+  elapsed.s            : 124.511
+  throughput           : 137,978,682.03 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 66.90 MB
+  heap.after           : 98.95 MB
+  heap.delta           : 32.05 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[2/16] NaivIKJ
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:18:06.964
+  end                  : 2026-04-26 01:18:24.143
+  elapsed              : 17.177 s   (17,176.737 ms)
+  elapsed.ns           : 17,176,737,100
+  elapsed.ms           : 17,176.737
+  elapsed.s            : 17.177
+  throughput           : 1,000,182,344.53 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 98.95 MB
+  heap.after           : 131.22 MB
+  heap.delta           : 32.27 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[3/16] NaivKIJ
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:18:24.144
+  end                  : 2026-04-26 01:18:35.506
+  elapsed              : 11.362 s   (11,361.642 ms)
+  elapsed.ns           : 11,361,642,300
+  elapsed.ms           : 11,361.642
+  elapsed.s            : 11.362
+  throughput           : 1,512,093,826.79 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 131.22 MB
+  heap.after           : 163.69 MB
+  heap.delta           : 32.46 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[4/16] NaivJIK
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:18:35.507
+  end                  : 2026-04-26 01:20:16.851
+  elapsed              : 101.343 s   (101,343.334 ms)
+  elapsed.ns           : 101,343,334,100
+  elapsed.ms           : 101,343.334
+  elapsed.s            : 101.343
+  throughput           : 169,521,452.36 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 163.69 MB
+  heap.after           : 196.53 MB
+  heap.delta           : 32.84 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[5/16] TransposedNaiv
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:20:16.853
+  end                  : 2026-04-26 01:20:28.526
+  elapsed              : 11.671 s   (11,671.310 ms)
+  elapsed.ns           : 11,671,309,800
+  elapsed.ms           : 11,671.310
+  elapsed.s            : 11.671
+  throughput           : 1,471,974,395.20 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 196.53 MB
+  heap.after           : 131.11 MB
+  heap.delta           : -65.42 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[6/16] BlockMatrix(B=64)
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:20:28.530
+  end                  : 2026-04-26 01:20:49.735
+  elapsed              : 21.204 s   (21,204.049 ms)
+  elapsed.ns           : 21,204,048,600
+  elapsed.ms           : 21,204.049
+  elapsed.s            : 21.204
+  throughput           : 810,216,459.51 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 131.11 MB
+  heap.after           : 163.11 MB
+  heap.delta           : 32.00 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[7/16] NaivLoopUnrollingTwo
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:20:49.737
+  end                  : 2026-04-26 01:22:34.087
+  elapsed              : 104.349 s   (104,349.196 ms)
+  elapsed.ns           : 104,349,195,800
+  elapsed.ms           : 104,349.196
+  elapsed.s            : 104.349
+  throughput           : 164,638,251.90 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 163.11 MB
+  heap.after           : 195.11 MB
+  heap.delta           : 32.00 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[8/16] NaivLoopUnrollingFour
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:22:34.090
+  end                  : 2026-04-26 01:24:24.415
+  elapsed              : 110.325 s   (110,325.215 ms)
+  elapsed.ns           : 110,325,215,100
+  elapsed.ms           : 110,325.215
+  elapsed.s            : 110.325
+  throughput           : 155,720,241.91 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 195.11 MB
+  heap.after           : 227.11 MB
+  heap.delta           : 32.00 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[9/16] NaivLoopUnrollingEight
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:24:24.420
+  end                  : 2026-04-26 01:24:37.540
+  elapsed              : 13.119 s   (13,119.181 ms)
+  elapsed.ns           : 13,119,180,900
+  elapsed.ms           : 13,119.181
+  elapsed.s            : 13.119
+  throughput           : 1,309,523,004.14 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 227.11 MB
+  heap.after           : 98.33 MB
+  heap.delta           : -128.78 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[10/16] WinogradOriginal
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:24:37.542
+  end                  : 2026-04-26 01:26:16.913
+  elapsed              : 99.370 s   (99,369.839 ms)
+  elapsed.ns           : 99,369,838,500
+  elapsed.ms           : 99,369.839
+  elapsed.s            : 99.370
+  throughput           : 172,888,166.50 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 98.33 MB
+  heap.after           : 133.65 MB
+  heap.delta           : 35.32 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[11/16] WinogradScaled
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:26:16.916
+  end                  : 2026-04-26 01:27:43.402
+  elapsed              : 86.486 s   (86,485.884 ms)
+  elapsed.ns           : 86,485,883,700
+  elapsed.ms           : 86,485.884
+  elapsed.s            : 86.486
+  throughput           : 198,643,621.93 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 133.65 MB
+  heap.after           : 261.65 MB
+  heap.delta           : 128.00 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[12/16] RecursiveDivideConquer
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:27:43.404
+  end                  : 2026-04-26 01:27:54.813
+  elapsed              : 11.408 s   (11,407.594 ms)
+  elapsed.ns           : 11,407,593,700
+  elapsed.ms           : 11,407.594
+  elapsed.s            : 11.408
+  throughput           : 1,506,002,899.10 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 261.65 MB
+  heap.after           : 444.62 MB
+  heap.delta           : 182.97 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[13/16] StrassenNaiv
+  complexity           : O(n^2.807)
+  start                : 2026-04-26 01:27:54.814
+  end                  : 2026-04-26 01:28:05.202
+  elapsed              : 10.387 s   (10,386.847 ms)
+  elapsed.ns           : 10,386,847,000
+  elapsed.ms           : 10,386.847
+  elapsed.s            : 10.387
+  throughput           : 1,654,002,334.30 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 444.62 MB
+  heap.after           : 610.56 MB
+  heap.delta           : 165.94 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[14/16] StrassenWinograd
+  complexity           : O(n^2.807)
+  start                : 2026-04-26 01:28:05.206
+  end                  : 2026-04-26 01:28:11.944
+  elapsed              : 6.737 s   (6,736.856 ms)
+  elapsed.ns           : 6,736,855,600
+  elapsed.ms           : 6,736.856
+  elapsed.s            : 6.737
+  throughput           : 2,550,131,723.77 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 610.56 MB
+  heap.after           : 755.99 MB
+  heap.delta           : 145.44 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[15/16] ParallelNaiv(threads=11)
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:28:11.946
+  end                  : 2026-04-26 01:28:17.367
+  elapsed              : 5.420 s   (5,420.494 ms)
+  elapsed.ns           : 5,420,493,900
+  elapsed.ms           : 5,420.494
+  elapsed.s            : 5.420
+  throughput           : 3,169,428,745.97 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 755.99 MB
+  heap.after           : 831.99 MB
+  heap.delta           : 76.00 MB
+  status               : OK
+--------------------------------------------------------------------------------
+[16/16] ParallelBlock(B=64,threads=11)
+  complexity           : O(n^3)
+  start                : 2026-04-26 01:28:17.370
+  end                  : 2026-04-26 01:28:26.078
+  elapsed              : 8.708 s   (8,708.031 ms)
+  elapsed.ns           : 8,708,031,200
+  elapsed.ms           : 8,708.031
+  elapsed.s            : 8.708
+  throughput           : 1,972,876,393.00 equiv-ops/s  (assuming 2*n^3 ops)
+  heap.before          : 831.99 MB
+  heap.after           : 375.93 MB
+  heap.delta           : -456.06 MB
+  status               : OK
+--------------------------------------------------------------------------------
+
+[RANKING]  (fastest first)
+--------------------------------------------------------------------------------
+Rank Algorithm                        Complexity           Time    vs Best   vs Worst    Share
+--------------------------------------------------------------------------------
+1    ParallelNaiv(threads=11)         O(n^3)       5,420.49 ms      1.00x     22.97x    0.73%
+2    StrassenWinograd                 O(n^2.807)   6,736.86 ms      1.24x     18.48x    0.91%
+3    ParallelBlock(B=64,threads=11)   O(n^3)       8,708.03 ms      1.61x     14.30x    1.17%
+4    StrassenNaiv                     O(n^2.807)   10,386.85 ms      1.92x     11.99x    1.40%
+5    NaivKIJ                          O(n^3)       11,361.64 ms      2.10x     10.96x    1.53%
+6    RecursiveDivideConquer           O(n^3)       11,407.59 ms      2.10x     10.91x    1.53%
+7    TransposedNaiv                   O(n^3)       11,671.31 ms      2.15x     10.67x    1.57%
+8    NaivLoopUnrollingEight           O(n^3)       13,119.18 ms      2.42x      9.49x    1.76%
+9    NaivIKJ                          O(n^3)       17,176.74 ms      3.17x      7.25x    2.31%
+10   BlockMatrix(B=64)                O(n^3)       21,204.05 ms      3.91x      5.87x    2.85%
+11   WinogradScaled                   O(n^3)       86,485.88 ms     15.96x      1.44x   11.63%
+12   WinogradOriginal                 O(n^3)       99,369.84 ms     18.33x      1.25x   13.36%
+13   NaivJIK                          O(n^3)       101,343.33 ms     18.70x      1.23x   13.63%
+14   NaivLoopUnrollingTwo             O(n^3)       104,349.20 ms     19.25x      1.19x   14.03%
+15   NaivLoopUnrollingFour            O(n^3)       110,325.22 ms     20.35x      1.13x   14.84%
+16   NaivOnArray                      O(n^3)       124,511.04 ms     22.97x      1.00x   16.74%
+
+[SUMMARY]
+session.end            : 2026-04-26 01:28:26.114
+session.total          : 743.974 s   (743,973.633 ms)
+matrix.generation      : 257.347 ms
+algorithms.executed    : 16
+algorithms.ok          : 16
+algorithms.failed      : 0
+fastest.algorithm      : ParallelNaiv(threads=11)  (5,420.49 ms)
+slowest.algorithm      : NaivOnArray  (124,511.04 ms)
+median.algorithm       : NaivIKJ  (17,176.74 ms)
+speedup.range          : 22.97x (slowest / fastest)
+================================================================================
+ END OF REPORT
+================================================================================

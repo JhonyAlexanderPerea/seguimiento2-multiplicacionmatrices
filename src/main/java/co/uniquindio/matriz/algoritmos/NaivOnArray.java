@@ -25,8 +25,8 @@ public class NaivOnArray implements MatrixMultiplier {
     }
  
     @Override
-    public String getName() { return this.getClass().getName(); }
- 
+    public String getName() { return "NaivOnArray"; }
+
     @Override
-    public String getComplexityOrder() { return "O(n³)"; }
+    public String getComplexityOrder() { return "O(n^3)"; }
 }

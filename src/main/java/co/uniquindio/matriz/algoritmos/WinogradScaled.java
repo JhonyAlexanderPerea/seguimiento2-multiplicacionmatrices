@@ -78,8 +78,8 @@ public class WinogradScaled implements MatrixMultiplier {
     }
 
     @Override
-    public String getName() { return this.getClass().getName(); }
+    public String getName() { return "WinogradScaled"; }
 
     @Override
-    public String getComplexityOrder() { return "O(n³)  [Winograd + escalado numérico]"; }
+    public String getComplexityOrder() { return "O(n^3)"; }
 }

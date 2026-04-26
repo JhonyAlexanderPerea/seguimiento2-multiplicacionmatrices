@@ -146,7 +146,7 @@ public class StrassenWinograd implements MatrixMultiplier {
     }
 
     @Override
-    public String getName() { return this.getClass().getName(); }
+    public String getName() { return "StrassenWinograd"; }
 
     @Override
     public String getComplexityOrder() { return "O(n^2.807)"; }

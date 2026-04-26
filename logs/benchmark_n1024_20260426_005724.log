@@ -1,0 +1,70 @@
+================================================================
+ MATRIX MULTIPLICATION BENCHMARK - TECHNICAL LOG
+================================================================
+session.start          : 2026-04-26 00:57:25.051
+session.timezone       : America/Bogota
+os.name                : Windows 11
+os.version             : 10.0
+os.arch                : amd64
+os.cpu.cores           : 12
+os.load.avg            : -1.00
+jvm.vendor             : Oracle Corporation
+jvm.version            : 24.0.2
+jvm.runtime            : OpenJDK 64-Bit Server VM 24.0.2+12-54
+jvm.heap.max.MB        : 8192
+jvm.heap.total.MB      : 512
+jvm.heap.free.MB       : 506
+jvm.uptime.ms          : 302
+jvm.input.args         : -Xmx8g
+----------------------------------------------------------------
+ BENCHMARK PARAMETERS
+----------------------------------------------------------------
+matrix.size            : 1024 x 1024
+matrix.cells           : 1,048,576
+matrix.element.type    : long (64-bit signed integer)
+matrix.element.range   : [100000, 999999]
+matrix.bytes.each.MB   : 8
+algorithms.count       : 16
+----------------------------------------------------------------
+ PER-ALGORITHM EXECUTION
+----------------------------------------------------------------
+[2026-04-26 00:57:25.190] [1/16] START algorithm=co.uniquindio.matriz.algoritmos.NaivOnArray complexity=O(n³)
+[2026-04-26 00:57:31.069] [1/16] END   algorithm=co.uniquindio.matriz.algoritmos.NaivOnArray complexity=O(n³) n=1024 elapsed_ns=5876043600 elapsed_ms=5876.044 elapsed_s=5.876 heap_used_MB=30
+[2026-04-26 00:57:31.077] [2/16] START algorithm=NaivIKJ complexity=O(n^3)
+[2026-04-26 00:57:34.884] [2/16] END   algorithm=NaivIKJ complexity=O(n^3) n=1024 elapsed_ns=3803387600 elapsed_ms=3803.388 elapsed_s=3.803 heap_used_MB=38
+[2026-04-26 00:57:34.886] [3/16] START algorithm=NaivKIJ complexity=O(n^3)
+[2026-04-26 00:57:38.739] [3/16] END   algorithm=NaivKIJ complexity=O(n^3) n=1024 elapsed_ns=3849940100 elapsed_ms=3849.940 elapsed_s=3.850 heap_used_MB=46
+[2026-04-26 00:57:38.740] [4/16] START algorithm=NaivJIK complexity=O(n^3)
+[2026-04-26 00:57:48.902] [4/16] END   algorithm=NaivJIK complexity=O(n^3) n=1024 elapsed_ns=10158864400 elapsed_ms=10158.864 elapsed_s=10.159 heap_used_MB=26
+[2026-04-26 00:57:48.904] [5/16] START algorithm=TransposedNaiv complexity=O(n^3)
+[2026-04-26 00:57:52.083] [5/16] END   algorithm=TransposedNaiv complexity=O(n^3) n=1024 elapsed_ns=3176412200 elapsed_ms=3176.412 elapsed_s=3.176 heap_used_MB=42
+[2026-04-26 00:57:52.084] [6/16] START algorithm=BlockMatrix(B=64) complexity=O(n^3)
+[2026-04-26 00:57:56.441] [6/16] END   algorithm=BlockMatrix(B=64) complexity=O(n^3) n=1024 elapsed_ns=4355681300 elapsed_ms=4355.681 elapsed_s=4.356 heap_used_MB=51
+[2026-04-26 00:57:56.442] [7/16] START algorithm=co.uniquindio.matriz.algoritmos.NaivLoopUnrollingTwo complexity=O(n³)
+[2026-04-26 00:58:08.688] [7/16] END   algorithm=co.uniquindio.matriz.algoritmos.NaivLoopUnrollingTwo complexity=O(n³) n=1024 elapsed_ns=12243156000 elapsed_ms=12243.156 elapsed_s=12.243 heap_used_MB=59
+[2026-04-26 00:58:08.691] [8/16] START algorithm=co.uniquindio.matriz.algoritmos.NaivLoopUnrollingFour complexity=O(n³)
+[2026-04-26 00:58:21.409] [8/16] END   algorithm=co.uniquindio.matriz.algoritmos.NaivLoopUnrollingFour complexity=O(n³) n=1024 elapsed_ns=12715049300 elapsed_ms=12715.049 elapsed_s=12.715 heap_used_MB=67
+[2026-04-26 00:58:21.410] [9/16] START algorithm=NaivLoopUnrollingEight complexity=O(n^3)
+[2026-04-26 00:58:24.043] [9/16] END   algorithm=NaivLoopUnrollingEight complexity=O(n^3) n=1024 elapsed_ns=2628915200 elapsed_ms=2628.915 elapsed_s=2.629 heap_used_MB=75
+[2026-04-26 00:58:24.044] [10/16] START algorithm=co.uniquindio.matriz.algoritmos.WinogradOriginal complexity=O(n³)  [~n³/2 multiplicaciones]
+[2026-04-26 00:58:35.010] [10/16] END   algorithm=co.uniquindio.matriz.algoritmos.WinogradOriginal complexity=O(n³)  [~n³/2 multiplicaciones] n=1024 elapsed_ns=10965160100 elapsed_ms=10965.160 elapsed_s=10.965 heap_used_MB=83
+[2026-04-26 00:58:35.011] [11/16] START algorithm=co.uniquindio.matriz.algoritmos.WinogradScaled complexity=O(n³)  [Winograd + escalado numérico]
+[2026-04-26 00:58:43.253] [11/16] END   algorithm=co.uniquindio.matriz.algoritmos.WinogradScaled complexity=O(n³)  [Winograd + escalado numérico] n=1024 elapsed_ns=8240005800 elapsed_ms=8240.006 elapsed_s=8.240 heap_used_MB=115
+[2026-04-26 00:58:43.254] [12/16] START algorithm=RecursiveDivideConquer complexity=O(n^3)
+[2026-04-26 00:58:45.813] [12/16] END   algorithm=RecursiveDivideConquer complexity=O(n^3) n=1024 elapsed_ns=2554771900 elapsed_ms=2554.772 elapsed_s=2.555 heap_used_MB=104
+[2026-04-26 00:58:45.815] [13/16] START algorithm=co.uniquindio.matriz.algoritmos.StrassenNaiv complexity=O(n^2.807)
+[2026-04-26 00:58:48.106] [13/16] END   algorithm=co.uniquindio.matriz.algoritmos.StrassenNaiv complexity=O(n^2.807) n=1024 elapsed_ns=2290464200 elapsed_ms=2290.464 elapsed_s=2.290 heap_used_MB=85
+[2026-04-26 00:58:48.108] [14/16] START algorithm=co.uniquindio.matriz.algoritmos.StrassenWinograd complexity=O(n^2.807)
+[2026-04-26 00:58:50.074] [14/16] END   algorithm=co.uniquindio.matriz.algoritmos.StrassenWinograd complexity=O(n^2.807) n=1024 elapsed_ns=1965010900 elapsed_ms=1965.011 elapsed_s=1.965 heap_used_MB=225
+[2026-04-26 00:58:50.081] [15/16] START algorithm=ParallelNaiv(threads=11) complexity=O(n^3)
+[2026-04-26 00:58:51.025] [15/16] END   algorithm=ParallelNaiv(threads=11) complexity=O(n^3) n=1024 elapsed_ns=938721100 elapsed_ms=938.721 elapsed_s=0.939 heap_used_MB=255
+[2026-04-26 00:58:51.028] [16/16] START algorithm=ParallelBlock(B=64,threads=11) complexity=O(n^3)
+[2026-04-26 00:58:52.672] [16/16] END   algorithm=ParallelBlock(B=64,threads=11) complexity=O(n^3) n=1024 elapsed_ns=1642816200 elapsed_ms=1642.816 elapsed_s=1.643 heap_used_MB=263
+----------------------------------------------------------------
+ SESSION SUMMARY
+----------------------------------------------------------------
+session.end            : 2026-04-26 00:58:52.674
+session.total.ns       : 87648385200
+session.total.ms       : 87648.385
+session.total.s        : 87.648
+================================================================

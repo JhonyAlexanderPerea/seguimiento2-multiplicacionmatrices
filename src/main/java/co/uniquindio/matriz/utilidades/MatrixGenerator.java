@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class MatrixGenerator {
 
-    private static final long MIN_VALUE = 100_000L;   // 6 digits minimum
-    private static final long MAX_VALUE = 999_999L;   // 6 digits maximum
+    public static final long MIN_VALUE = 100_000L;   // 6 digits minimum
+    public static final long MAX_VALUE = 999_999L;   // 6 digits maximum
 
     private final Random random;
 

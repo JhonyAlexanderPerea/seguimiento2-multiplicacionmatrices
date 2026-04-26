@@ -104,7 +104,7 @@ public class StrassenNaiv implements MatrixMultiplier {
     }
 
     @Override
-    public String getName() { return this.getClass().getName(); }
+    public String getName() { return "StrassenNaiv"; }
 
     @Override
     public String getComplexityOrder() { return "O(n^2.807)"; }

@@ -50,8 +50,8 @@ public class WinogradOriginal implements MatrixMultiplier {
     }
  
     @Override
-    public String getName() { return this.getClass().getName(); }
- 
+    public String getName() { return "WinogradOriginal"; }
+
     @Override
-    public String getComplexityOrder() { return "O(n³)  [~n³/2 multiplicaciones]"; }
+    public String getComplexityOrder() { return "O(n^3)"; }
 }
