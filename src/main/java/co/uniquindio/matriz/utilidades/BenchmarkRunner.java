@@ -2,6 +2,7 @@ package co.uniquindio.matriz.utilidades;
 
 import co.uniquindio.matriz.algoritmos.MatrixMultiplier;
 import co.uniquindio.matriz.modelo.BenchmarkResult;
+import co.uniquindio.matriz.persistencia.PersistenceManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ public class BenchmarkRunner {
 
     private final List<MatrixMultiplier> algorithms = new ArrayList<>();
     private final MatrixGenerator generator;
+    private final PersistenceManager persistenceManager;
     private final int matrixSize;
 
     public BenchmarkRunner(int matrixSize) {
         this.matrixSize = matrixSize;
         this.generator = new MatrixGenerator();
+        this.persistenceManager = new PersistenceManager();
     }
 
     public void addAlgorithm(MatrixMultiplier algorithm) {
@@ -44,10 +47,14 @@ public class BenchmarkRunner {
             long genStart = System.nanoTime();
             long[][] A = generator.generate(matrixSize);
             long[][] B = generator.generate(matrixSize);
+                PersistenceManager.MatrixSaveResult savedMatrices =
+                    persistenceManager.saveMatrices(A, B, matrixSize);
             long genElapsed = System.nanoTime() - genStart;
             logger.recordMatrixGeneration(genElapsed);
             System.out.printf("Matrices generated in %.3f s. Starting benchmarks...%n%n",
                     genElapsed / 1_000_000_000.0);
+                System.out.printf("Matrix A saved to: %s%n", savedMatrices.matrixAFile().toAbsolutePath());
+                System.out.printf("Matrix B saved to: %s%n", savedMatrices.matrixBFile().toAbsolutePath());
 
             int total = algorithms.size();
             for (int i = 0; i < total; i++) {

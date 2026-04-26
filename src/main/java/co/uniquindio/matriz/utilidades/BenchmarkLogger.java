@@ -20,10 +20,10 @@ import java.util.Locale;
 
 /**
  * BenchmarkLogger
- * Genera un log tecnico, sin emojis, en la carpeta logs/.
+ * Genera un log tecnico, en la carpeta logs/.
  *
  * Cada ejecucion produce dos archivos:
- *   - logs/benchmark_n{tamano}_{timestamp}.log : reporte legible por humanos
+ *   - logs/benchmark_n{tamano}_{timestamp}.log : reporte legible 
  *   - logs/benchmark_n{tamano}_{timestamp}.csv : tabla para analisis posterior
  *
  * El reporte legible se organiza en secciones claramente separadas:

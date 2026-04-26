@@ -44,7 +44,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>co.uniquindio.matrix.Main</mainClass>
+                            <mainClass>co.uniquindio.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
